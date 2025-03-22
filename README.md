@@ -69,9 +69,12 @@ J'ai modifié le composant `ProductSearch` pour intégrer la recherche en temps 
 
 _Votre réponse pour l'exercice 2 :_
 ```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
+J'ai créé `LanguageContext` pour gérer les préférences de langue de l'utilisateur et permettre un changement dynamique de la langue. Un sélecteur de langue a été ajouté pour modifier la langue en temps réel.
 ```
+![image](https://github.com/user-attachments/assets/773649a6-1a25-46e8-878d-ca4934e25cec)
+![image](https://github.com/user-attachments/assets/c617d225-65fe-4899-a3fd-964e0227a097)
+
+
 
 ### Exercice 3 : Hooks Personnalisés
 #### Objectif : Créer des hooks réutilisables
