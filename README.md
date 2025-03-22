@@ -53,9 +53,12 @@ Pour chaque exercice :
 
 _Votre réponse pour l'exercice 1 :_
 ```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
+J'ai modifié le composant `ProductSearch` pour intégrer la recherche en temps réel avec un mécanisme de debounce. Cela permet de limiter le nombre de requêtes en attendant un court délai après la dernière saisie de l'utilisateur avant d'exécuter la recherche. Cette approche améliore les performances et réduit la charge sur l'API.  
 ```
+![image](https://github.com/user-attachments/assets/08594d1b-e62d-46ab-970b-f3853d746d53)
+![image](https://github.com/user-attachments/assets/8c1a217a-a30d-4bf3-aa6b-1732a9919319)
+
+
 
 ### Exercice 2 : Context et Internationalisation
 #### Objectif : Gérer les préférences de langue
