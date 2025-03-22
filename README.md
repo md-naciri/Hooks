@@ -99,9 +99,13 @@ Ces hooks permettent de réutiliser facilement ces fonctionnalités dans l'appli
 
 _Votre réponse pour l'exercice 4 :_
 ```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
+J'ai ajouté un bouton '-' de rechargement pour permettre à l'utilisateur d'actualiser les données manuellement.  
+J'ai également implémenté la pagination afin de charger les données par pages, améliorant ainsi les performances et l'expérience utilisateur.  
 ```
+![image](https://github.com/user-attachments/assets/b96b3248-0e93-47c4-9023-868a35502911)
+![image](https://github.com/user-attachments/assets/3d26942a-5d9f-4eb4-a03a-e1525004437f)
+
+
 
 ## Rendu
 
