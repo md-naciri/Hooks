@@ -85,8 +85,9 @@ J'ai créé `LanguageContext` pour gérer les préférences de langue de l'utili
 
 _Votre réponse pour l'exercice 3 :_
 ```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
+J'ai créé le hook `useDebounce` pour gérer le délai d'exécution des fonctions et éviter les appels trop fréquents.
+J'ai également implémenté `useLocalStorage` pour simplifier l'utilisation du stockage local en facilitant la lecture et l'écriture des données avec React.
+Ces hooks permettent de réutiliser facilement ces fonctionnalités dans l'application.
 ```
 
 ### Exercice 4 : Gestion Asynchrone et Pagination
