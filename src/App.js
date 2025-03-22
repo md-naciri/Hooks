@@ -1,9 +1,10 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import useLocalStorage from './hooks/useLocalStorage';
+import useProductSearch from './hooks/useProductSearch';
 import ProductSearch from './components/ProductSearch';
 import ProductList from './components/ProductList';
 import ThemeToggle from './components/ThemeToggle';
-import { LanguageContext } from './contexts/LanguageContext'; 
+import { LanguageContext } from './contexts/LanguageContext';
 import LanguageSelector from './components/LanguageSelector';
 
 /*
@@ -14,10 +15,32 @@ import LanguageSelector from './components/LanguageSelector';
  * 3.3 Documenter votre solution ici
  */
 export const ThemeContext = createContext();
+
 const App = () => {
+  // Theme and language state management
   const [isDarkTheme, setIsDarkTheme] = useLocalStorage('theme', false);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [language, setLanguage] = useLocalStorage('language', 'fr'); // Persist language
+  const [language, setLanguage] = useLocalStorage('language', 'fr');
+
+  // Product search and pagination state
+  const { 
+    products,
+    loading, 
+    error, 
+    reload,
+    currentPage,
+    totalPages,
+    nextPage,
+    previousPage,
+    isFirstPage,
+    isLastPage 
+  } = useProductSearch();
+
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  // Update filtered products when products change
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
 
   return (
     <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>
@@ -28,13 +51,27 @@ const App = () => {
               {language === 'fr' ? 'Catalogue de Produits' : 'Product Catalog'}
             </h1>
             <div className="d-flex justify-content-end gap-2">
-            <ThemeToggle />
+              <ThemeToggle />
               <LanguageSelector />
             </div>
           </header>
           <main>
-            <ProductSearch setFilteredProducts={setFilteredProducts} />
-            <ProductList filteredProducts={filteredProducts} />
+            <ProductSearch 
+              setFilteredProducts={setFilteredProducts} 
+              products={products}
+            />
+            <ProductList 
+              filteredProducts={filteredProducts}
+              loading={loading}
+              error={error}
+              reload={reload}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              nextPage={nextPage}
+              previousPage={previousPage}
+              isFirstPage={isFirstPage}
+              isLastPage={isLastPage}
+            />
           </main>
         </div>
       </LanguageContext.Provider>
