@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from '../App';
-import useProductSearch from '../hooks/useProductSearch';
 
 const ProductList = ({ filteredProducts }) => {
   const { isDarkTheme } = useContext(ThemeContext);
