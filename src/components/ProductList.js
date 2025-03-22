@@ -1,38 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../App';
 import useProductSearch from '../hooks/useProductSearch';
 
-const ProductList = () => {
+const ProductList = ({ filteredProducts }) => {
   const { isDarkTheme } = useContext(ThemeContext);
+  
   // TODO: Exercice 2.1 - Utiliser le LanguageContext pour les traductions
   
-  const { 
-    products, 
-    loading, 
-    error,
-    // TODO: Exercice 4.1 - Récupérer la fonction de rechargement
-    // TODO: Exercice 4.2 - Récupérer les fonctions et états de pagination
-  } = useProductSearch();
   
-  if (loading) return (
-    <div className="text-center my-4">
-      <div className="spinner-border" role="status">
-        <span className="visually-hidden">Chargement...</span>
-      </div>
-    </div>
-  );
+  //const [filteredProducts, setFilteredProducts] = useState(products);
   
-  if (error) return (
-    <div className="alert alert-danger" role="alert">
-      Erreur: {error}
-    </div>
-  );
+  
+
+  if (!filteredProducts.length) {
+    return <p className="text-center">Aucun produit trouvé.</p>;
+  }
   
   return (
     <div>
+      
       {/* TODO: Exercice 4.1 - Ajouter le bouton de rechargement */}
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        {products.map(product => (
+        {filteredProducts.map(product => (
           <div key={product.id} className="col">
             <div className={`card h-100 ${isDarkTheme ? 'bg-dark text-light' : ''}`}>
               {product.thumbnail && (
